@@ -25,12 +25,14 @@ def handle_events():
 
 
 def reset_world():
-    global running, cx, cy, frame , hx, hy
+    global running, cx, cy, frame , hx, hy ,sx,sy ,t
     running = True
     cx, cy = TUK_WIDTH // 2, TUK_HEIGHT // 2
     frame = 0
-    #hx, hy = TUK_WIDTH -50, TUK_HEIGHT -50
-    hx, hy = random.randint(0,TUK_WIDTH),random.randint(0,TUK_HEIGHT)
+    hx, hy = TUK_WIDTH -50, TUK_HEIGHT -50
+    #hx, hy = random.randint(0,TUK_WIDTH),random.randint(0,TUK_HEIGHT)
+    sx,sy = cx,cy
+    t = 0.0
 
 
 
@@ -44,7 +46,11 @@ def render_world():
 
 def update_world():
     global frame
+    global sx,sy,t,hx,hy,cx,cy
     frame = (frame + 1) % 8
+    cx = (1-t)* sx + t*hx
+    cy = (1-t)* sy + t*hy
+    t += 0.001
 
 
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
