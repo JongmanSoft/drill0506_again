@@ -79,6 +79,7 @@ def update_world():
              cx,cy = hx,hy #목적지위치와 강제로 일치시킴
              del points[0] #필요없는점삭제
              set_new_target_arrow()
+    elif points: set_new_target_arrow()
 
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 load_resources()
