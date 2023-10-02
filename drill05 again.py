@@ -35,9 +35,14 @@ def render_world():
     update_canvas()
 
 
+def update_world():
+    global frame
+    frame = (frame + 1) % 8
+
+
 while running:
     render_world()
-    frame = (frame + 1) % 8
+    update_world()
 
     handle_events()
 
