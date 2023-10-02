@@ -1,7 +1,7 @@
 from pico2d import *
 import random
 
-TUK_WIDTH, TUK_HEIGHT = 800, 600
+TUK_WIDTH, TUK_HEIGHT = 1280, 800
 
 
 def load_resources():
@@ -21,6 +21,8 @@ def handle_events():
             running = False
         elif event.type == SDL_MOUSEMOTION:
             mx,my = event.x , TUK_HEIGHT - 1- event.y
+        elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
+            points.append((event.x, TUK_HEIGHT-1-event.y))
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
     pass
@@ -33,7 +35,7 @@ def reset_world():
     cx, cy = TUK_WIDTH // 2, TUK_HEIGHT // 2
     frame = 0
     action = 3
-    points =[(100,100),(200,800),(500,100)]
+    points =[]
     #hx, hy = 50, 50
     set_new_target_arrow()
 
