@@ -41,10 +41,11 @@ def update_world():
 
 
 while running:
-    render_world()
-    update_world()
+    render_world() #월드현재내용그리기
+    handle_events() #월드내 입력 받아들이기
+    update_world() #객체들의 상호작용 계산 후 그결과를 update
 
-    handle_events()
+
 
 close_canvas()
 
